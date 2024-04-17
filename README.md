@@ -10,7 +10,7 @@ This Python project is a web-based system monitoring application built with Flas
 
 #### Structure
 - `app.py`: The main Flask application script.
-- `dashboard.py`: A separate module that presumably contains functions like `cpu_usage()` and `memory_usage()` to get system statistics.
+- `dashboard.py`: A separate module that contains functions like `cpu_usage()` and `memory_usage()` to get system statistics.
 - `static/`: A directory for static files such as CSS, JavaScript, and images that style the web interface.
 - `templates/`: A directory containing HTML templates for the Flask app.
 
