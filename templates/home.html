@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>System Monitor</title>
+    <link rel="stylesheet" href="static/styles.css">
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const cpuElement = document.getElementById('cpu-usage');
+            const memoryElement = document.getElementById('memory-usage');
+
+            function updateStats() {
+                fetch('/stats')
+                    .then(response => response.json())
+                    .then(data => {
+                        cpuElement.textContent = `${data.cpu_usage}%`;
+                        memoryElement.textContent = `${data.memory_usage}%`;
+                    })
+                    .catch(error => console.error('Failed to fetch data:', error));
+            }
+
+            setInterval(updateStats, 1000); 
+        });
+    </script>
+</head>
+<body>
+    <div class="circle" id="cpu">
+        <div class="usage" id="cpu-usage">Loading...</div>
+        <p class="label">CPU Usage</p>
+    </div>
+    <div class="circle" id="memory">
+        <div class="usage" id="memory-usage">Loading...</div>
+        <p class="label">Memory Usage</p>
+    </div>
+</body>
+</html>
